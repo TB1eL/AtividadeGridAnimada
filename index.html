@@ -11,6 +11,31 @@
         box-sizing: border-box;
       }
 
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulseGlow {
+        0% {
+          text-shadow: 0 0 5px #bb86fc;
+        }
+        50% {
+          text-shadow:
+            0 0 20px #bb86fc,
+            0 0 30px #bb86fc;
+        }
+        100% {
+          text-shadow: 0 0 5px #bb86fc;
+        }
+      }
+
       body {
         font-family: "Segoe UI", Roboto, sans-serif;
         display: grid;
@@ -34,6 +59,11 @@
         padding: 0 30px;
       }
 
+      header h2 {
+        animation: pulseGlow 3s infinite ease-in-out;
+        color: #bb86fc;
+      }
+
       nav {
         grid-area: sidebar;
         background-color: #181818;
@@ -45,6 +75,7 @@
         grid-area: main;
         background-color: #121212;
         padding: 40px;
+        animation: fadeIn 1s ease-out forwards;
       }
 
       footer {
@@ -154,11 +185,10 @@
     </nav>
 
     <main>
-      <h1>Interface Atualizada</h1>
+      <h1>Interface Animada</h1>
       <p>
-        Este layout agora utiliza pseudo-elementos
-        <strong>::before</strong> para ícones decorativos e
-        <strong>::after</strong> para detalhes visuais no menu lateral.
+        Este layout possui uma animação de entrada suave no conteúdo principal e
+        um efeito de brilho pulsante no título do cabeçalho.
       </p>
     </main>
 
