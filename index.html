@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layout Grid com Menu Interativo</title>
+    <title>Layout Grid Profissional</title>
     <style>
-      /* Reset básico */
       * {
         margin: 0;
         padding: 0;
@@ -13,21 +12,18 @@
       }
 
       body {
-        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: "Segoe UI", Roboto, sans-serif;
         display: grid;
-        /* Definição do esqueleto do site */
         grid-template-areas:
           "header header"
           "sidebar main"
           "footer footer";
         grid-template-columns: 260px 1fr;
-        grid-template-rows: 70px 1fr 50px;
+        grid-template-rows: 70px 1fr 60px;
         min-height: 100vh;
         background-color: #121212;
         color: #e0e0e0;
       }
-
-      /* --- Estilização do Grid --- */
 
       header {
         grid-area: header;
@@ -42,14 +38,13 @@
         grid-area: sidebar;
         background-color: #181818;
         border-right: 1px solid #333;
-        padding: 20px 0; /* Padding vertical para os itens colarem nas bordas laterais */
+        padding: 20px 0;
       }
 
       main {
         grid-area: main;
         background-color: #121212;
         padding: 40px;
-        line-height: 1.6;
       }
 
       footer {
@@ -59,18 +54,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.9rem;
-        color: #888;
+        text-align: center;
+        padding: 0 20px;
       }
-
-      /* --- Estilização do Menu com Hover --- */
 
       nav h3 {
         padding: 0 20px 15px 20px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #666;
+        letter-spacing: 2px;
+        color: #555;
       }
 
       nav ul {
@@ -78,21 +71,51 @@
       }
 
       nav ul li {
-        padding: 12px 20px;
+        position: relative;
+        padding: 12px 20px 12px 45px;
         cursor: pointer;
-        transition: all 0.3s ease; /* Transição suave para o destaque */
-        border-left: 4px solid transparent; /* Reserva espaço para a borda lateral */
+        transition: all 0.3s ease;
+        color: #aaa;
       }
 
-      /* Efeito ao passar o mouse */
+      nav ul li::before {
+        content: "◆";
+        position: absolute;
+        left: 20px;
+        color: #444;
+        transition: all 0.3s ease;
+      }
+
       nav ul li:hover {
-        background-color: #2a2a2a;
-        color: #ffffff;
-        border-left: 4px solid #bb86fc; /* Destaque lateral colorido */
-        padding-left: 25px; /* Leve empurrão para a direita no hover */
+        background-color: #252525;
+        color: #fff;
+        padding-left: 50px;
       }
 
-      /* --- Responsividade --- */
+      nav ul li:hover::before {
+        content: "◈";
+        color: #bb86fc;
+        transform: scale(1.3);
+      }
+
+      nav ul li::after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 5px;
+        background-color: #333;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      nav ul li:hover::after {
+        opacity: 1;
+        background-color: #bb86fc;
+      }
 
       @media (max-width: 768px) {
         body {
@@ -102,47 +125,48 @@
             "main"
             "footer";
           grid-template-columns: 1fr;
-          grid-template-rows: 70px auto 1fr 50px;
+          grid-template-rows: 70px auto 1fr auto;
         }
-
         nav {
           border-right: none;
           border-bottom: 1px solid #333;
+        }
+        footer {
+          padding: 20px;
         }
       }
     </style>
   </head>
   <body>
     <header>
-      <h2>Dashboard</h2>
+      <h2>SISTEMA DARK</h2>
     </header>
 
     <nav>
-      <h3>Navegação</h3>
+      <h3>Menu</h3>
       <ul>
-        <li>Dashboard</li>
-        <li>Personagens</li>
-        <li>Inventário</li>
-        <li>Mapas</li>
+        <li>Visão Geral</li>
+        <li>Exploração</li>
+        <li>Grimório</li>
+        <li>Bestiário</li>
         <li>Configurações</li>
       </ul>
     </nav>
 
     <main>
-      <h1>Bem-vindo ao Sistema</h1>
+      <h1>Interface Atualizada</h1>
       <p>
-        Este layout utiliza <strong>CSS Grid</strong> para a estrutura principal
-        e <strong>pseudo-classes CSS</strong> para os efeitos de interatividade
-        no menu lateral.
-      </p>
-      <p>
-        Passe o mouse sobre os itens do menu à esquerda para ver o efeito de
-        destaque e transição.
+        Este layout agora utiliza pseudo-elementos
+        <strong>::before</strong> para ícones decorativos e
+        <strong>::after</strong> para detalhes visuais no menu lateral.
       </p>
     </main>
 
     <footer>
-      <p>&copy; 2026 - Interface de Gerenciamento</p>
+      <p>
+        &copy; 2026 - Desenvolvido pelo maior programador de CSS de chique
+        chique bahia Bielzinho Gameplays
+      </p>
     </footer>
   </body>
 </html>
